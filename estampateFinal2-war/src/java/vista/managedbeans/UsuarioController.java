@@ -78,22 +78,49 @@ public class UsuarioController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
+    
+    public String prepareCreateArtista() {
+        current = new Usuario();
+        selectedItemIndex = -1;
+        return "CreateArtista";
+    }
+    
 
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsuarioCreated"));
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Usuario creado satisfactoriamente"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
     }
+    
+    
+        public String createArtista() {
+        try {
+            getFacade().create(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Artista creado satisfactoriamente"));
+            return prepareCreateArtista();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
+    
 
     public String prepareEdit() {
         current = (Usuario) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
+    }
+    
+    public String prepareEditCliente() {
+        current = (Usuario) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "EditCliente";
     }
 
     public String update() {

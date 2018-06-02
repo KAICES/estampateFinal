@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListUsuarioTitle}"></h:outputText>
+            <h:outputText value="LISTA DE USUARIOS CLIENTE"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
@@ -74,7 +74,7 @@
                             </f:facet>
                             <h:commandLink action="#{usuarioController.prepareView}" value="#{bundle.ListUsuarioViewLink}"/>
                             <h:outputText value=" "/>
-                            <h:commandLink action="#{usuarioController.prepareEdit}" value="#{bundle.ListUsuarioEditLink}"/>
+                            <h:commandLink action="#{usuarioController.prepareEditCliente}" value="#{bundle.ListUsuarioEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{usuarioController.destroy}" value="#{bundle.ListUsuarioDestroyLink}"/>
                         </h:column>
