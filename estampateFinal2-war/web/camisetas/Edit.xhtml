@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCamisetasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCamisetasLabel_idCamisetas}" for="idCamisetas" />
+                    <h:inputText id="idCamisetas" value="#{camisetasController.selected.idCamisetas}" title="#{bundle.EditCamisetasTitle_idCamisetas}" required="true" requiredMessage="#{bundle.EditCamisetasRequiredMessage_idCamisetas}"/>
+                    <h:outputLabel value="#{bundle.EditCamisetasLabel_talla}" for="talla" />
+                    <h:inputText id="talla" value="#{camisetasController.selected.talla}" title="#{bundle.EditCamisetasTitle_talla}" required="true" requiredMessage="#{bundle.EditCamisetasRequiredMessage_talla}"/>
+                    <h:outputLabel value="#{bundle.EditCamisetasLabel_color}" for="color" />
+                    <h:inputText id="color" value="#{camisetasController.selected.color}" title="#{bundle.EditCamisetasTitle_color}" required="true" requiredMessage="#{bundle.EditCamisetasRequiredMessage_color}"/>
+                    <h:outputLabel value="#{bundle.EditCamisetasLabel_estilo}" for="estilo" />
+                    <h:inputText id="estilo" value="#{camisetasController.selected.estilo}" title="#{bundle.EditCamisetasTitle_estilo}" required="true" requiredMessage="#{bundle.EditCamisetasRequiredMessage_estilo}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{camisetasController.update}" value="#{bundle.EditCamisetasSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCamisetasViewLink}"/>
+                <br />
+                <h:commandLink action="#{camisetasController.prepareList}" value="#{bundle.EditCamisetasShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCamisetasIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
