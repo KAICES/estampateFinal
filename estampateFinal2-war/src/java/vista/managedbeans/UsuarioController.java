@@ -66,11 +66,23 @@ public class UsuarioController implements Serializable {
         recreateModel();
         return "List";
     }
+    
+    public String prepareListUserAdm() {
+        recreateModel();
+        return "ListUserAdm";
+    }
+    
 
     public String prepareView() {
         current = (Usuario) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
+    }
+    
+    public String prepareViewUserAdm() {
+        current = (Usuario) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "ViewUserAdm";
     }
 
     public String prepareCreate() {
@@ -83,6 +95,12 @@ public class UsuarioController implements Serializable {
         current = new Usuario();
         selectedItemIndex = -1;
         return "CreateArtista";
+    }
+    
+    public String prepareCreateUserAdm() {
+        current = new Usuario();
+        selectedItemIndex = -1;
+        return "CreateUserAdm";
     }
     
 
@@ -107,7 +125,19 @@ public class UsuarioController implements Serializable {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
-    }
+        }
+        
+        public String createUserAdm() {        
+        try {
+            getFacade().create(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Artista creado satisfactoriamente"));
+            return prepareCreateArtista();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+        
+        }
     
     
 
@@ -115,6 +145,13 @@ public class UsuarioController implements Serializable {
         current = (Usuario) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
+    }
+    
+    
+    public String prepareEditUserAdm() {
+        current = (Usuario) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "EditUserAdm";
     }
     
     public String prepareEditCliente() {
@@ -133,6 +170,18 @@ public class UsuarioController implements Serializable {
             return null;
         }
     }
+    
+    public String updateUserAdm() {
+        try {
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Usuario Actualizado"));
+            return "ViewUserAdm";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
 
     public String destroy() {
         current = (Usuario) getItems().getRowData();

@@ -20,12 +20,7 @@
                     <h:commandLink action="#{estampasController.previous}" value="#{bundle.Previous} #{estampasController.pagination.pageSize}" rendered="#{estampasController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{estampasController.next}" value="#{bundle.Next} #{estampasController.pagination.pageSize}" rendered="#{estampasController.pagination.hasNextPage}"/>&nbsp;
                     <h:dataTable value="#{estampasController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstampasTitle_idEstampas}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idEstampas}"/>
-                        </h:column>
+
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListEstampasTitle_nombreEstampa}"/>
@@ -62,38 +57,15 @@
                             </f:facet>
                             <h:outputText value="#{item.autor}"/>
                         </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstampasTitle_rating}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.rating}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstampasTitle_popularidad}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.popularidad}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListEstampasTitle_usuarioidUsuario}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.usuarioidUsuario}"/>
-                        </h:column>
+       
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{estampasController.prepareView}" value="#{bundle.ListEstampasViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{estampasController.prepareEdit}" value="#{bundle.ListEstampasEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{estampasController.destroy}" value="#{bundle.ListEstampasDestroyLink}"/>
-                        </h:column>
+                            <h:commandLink action="#{estampasController.prepareEditEstampas()}" value="CAMBIAR"/>
+                       </h:column>
                     </h:dataTable>
                 </h:panelGroup>
-                <br />
-                <h:commandLink action="#{estampasController.prepareCreate}" value="#{bundle.ListEstampasCreateLink}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListEstampasIndexLink}"/>

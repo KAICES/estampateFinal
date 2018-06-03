@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEstampasTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEstampasLabel_nombreEstampa}"/>
+                    <h:outputText value="#{estampasController.selected.nombreEstampa}" title="#{bundle.ViewEstampasTitle_nombreEstampa}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_descripcion}"/>
+                    <h:outputText value="#{estampasController.selected.descripcion}" title="#{bundle.ViewEstampasTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_tamaño}"/>
+                    <h:outputText value="#{estampasController.selected.tamaño}" title="#{bundle.ViewEstampasTitle_tamaño}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_precio}"/>
+                    <h:outputText value="#{estampasController.selected.precio}" title="#{bundle.ViewEstampasTitle_precio}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_ubicacion}"/>
+                    <h:outputText value="#{estampasController.selected.ubicacion}" title="#{bundle.ViewEstampasTitle_ubicacion}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_autor}"/>
+                    <h:outputText value="#{estampasController.selected.autor}" title="#{bundle.ViewEstampasTitle_autor}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_rating}"/>
+                    <h:outputText value="#{estampasController.selected.rating}" title="#{bundle.ViewEstampasTitle_rating}"/>
+                    <h:outputText value="#{bundle.ViewEstampasLabel_popularidad}"/>
+                    <h:outputText value="#{estampasController.selected.popularidad}" title="#{bundle.ViewEstampasTitle_popularidad}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{estampasController.prepareListEstampas()}" value="Volver al listado de estampas"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="Volver a la pagina principal"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
