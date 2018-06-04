@@ -6,6 +6,7 @@ import vista.managedbeans.util.PaginationHelper;
 import sesions.EstampasFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -22,6 +23,8 @@ import javax.faces.model.SelectItem;
 @SessionScoped
 public class EstampasController implements Serializable {
 
+    private List<Estampas> buscarAutores;
+    
     private Estampas current;
     private DataModel items = null;
     @EJB
@@ -31,6 +34,18 @@ public class EstampasController implements Serializable {
 
     public EstampasController() {
     }
+
+    public List<Estampas> getBuscarAutores() {
+        return buscarAutores;
+    }
+
+    public void setBuscarAutores(List<Estampas> buscarAutores) {
+        this.buscarAutores = buscarAutores;
+    }
+    
+     
+    
+    
 
     public Estampas getSelected() {
         if (current == null) {
@@ -70,6 +85,12 @@ public class EstampasController implements Serializable {
     public String prepareListEstampas() {
         recreateModel();
         return "ListEstampas";
+    }
+    
+    
+    public String prepareListParamTema() {
+        recreateModel();
+        return "ListParamTema";
     }
     
     
@@ -121,7 +142,17 @@ public class EstampasController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "EditEstampas";
     }
+        
+        
+    public String prepareEditParamTema() {
+        current = (Estampas) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "EditParamTema";
+    }    
 
+        
+        
+        
     public String update() {
         try {
             getFacade().edit(current);

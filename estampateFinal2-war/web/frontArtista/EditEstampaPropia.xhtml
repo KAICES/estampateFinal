@@ -15,35 +15,35 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEstampasLabel_idEstampas}" for="idEstampas" />
+                    <h:inputText id="idEstampas" value="#{estampasController.selected.idEstampas}" title="#{bundle.EditEstampasTitle_idEstampas}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_idEstampas}"/>
                     <h:outputLabel value="#{bundle.EditEstampasLabel_nombreEstampa}" for="nombreEstampa" />
                     <h:inputText id="nombreEstampa" value="#{estampasController.selected.nombreEstampa}" title="#{bundle.EditEstampasTitle_nombreEstampa}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_nombreEstampa}"/>
                     <h:outputLabel value="#{bundle.EditEstampasLabel_descripcion}" for="descripcion" />
                     <h:inputText id="descripcion" value="#{estampasController.selected.descripcion}" title="#{bundle.EditEstampasTitle_descripcion}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_descripcion}"/>
-                    <h:outputLabel value="#{bundle.EditEstampasLabel_tamaño}" for="tamaño" />                                     
-                    <h:selectOneMenu  id="tamaño" value="#{estampasController.selected.tamaño}" title="#{bundle.EditEstampasTitle_tamaño}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_tamaño}">
-                            <f:selectItem itemValue = "pequeño" itemLabel = "pequeño" /> 
-                            <f:selectItem itemValue = "mediano" itemLabel = "mediano" /> 
-                            <f:selectItem itemValue = "grande" itemLabel = "grande" />                             
-                    </h:selectOneMenu>               
+                    <h:outputLabel value="#{bundle.EditEstampasLabel_tamaño}" for="tamaño" />
+                    <h:inputText id="tamaño" value="#{estampasController.selected.tamaño}" title="#{bundle.EditEstampasTitle_tamaño}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_tamaño}"/>
                     <h:outputLabel value="#{bundle.EditEstampasLabel_precio}" for="precio" />
                     <h:inputText id="precio" value="#{estampasController.selected.precio}" title="#{bundle.EditEstampasTitle_precio}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_precio}"/>
                     <h:outputLabel value="#{bundle.EditEstampasLabel_ubicacion}" for="ubicacion" />
-                    <h:selectOneMenu  id="ubicacion" value="#{estampasController.selected.ubicacion}" title="#{bundle.EditEstampasTitle_ubicacion}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_ubicacion}">
-                            <f:selectItem itemValue = "adelante frontal" itemLabel = "adelante frontal" /> 
-                            <f:selectItem itemValue = "adelante pecho" itemLabel = "adelante pecho" /> 
-                            <f:selectItem itemValue = "magas derecha e izquierda" itemLabel = "magas derecha e izquierda" /> 
-                            <f:selectItem itemValue = "atras" itemLabel = "atras" /> 
-                    </h:selectOneMenu> 
-                    
-                    
-                    
+                    <h:inputText id="ubicacion" value="#{estampasController.selected.ubicacion}" title="#{bundle.EditEstampasTitle_ubicacion}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_ubicacion}"/>
                     <h:outputLabel value="#{bundle.EditEstampasLabel_autor}" for="autor" />
                     <h:inputText id="autor" value="#{estampasController.selected.autor}" title="#{bundle.EditEstampasTitle_autor}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_autor}"/>
+                    <h:outputLabel value="#{bundle.EditEstampasLabel_rating}" for="rating" />
+                    <h:inputText id="rating" value="#{estampasController.selected.rating}" title="#{bundle.EditEstampasTitle_rating}" />
+                    <h:outputLabel value="#{bundle.EditEstampasLabel_popularidad}" for="popularidad" />
+                    <h:inputText id="popularidad" value="#{estampasController.selected.popularidad}" title="#{bundle.EditEstampasTitle_popularidad}" />
+                    <h:outputLabel value="#{bundle.EditEstampasLabel_usuarioidUsuario}" for="usuarioidUsuario" />
+                    <h:selectOneMenu id="usuarioidUsuario" value="#{estampasController.selected.usuarioidUsuario}" title="#{bundle.EditEstampasTitle_usuarioidUsuario}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_usuarioidUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
                 </h:panelGrid>
-                <h:commandLink action="#{estampasController.updateEstampa()}" value="GUARDAR"/>
+                <h:commandLink action="#{estampasController.update}" value="#{bundle.EditEstampasSaveLink}"/>
                 <br />
                 <br />
-                <h:commandLink action="#{estampasController.prepareViewEstampas()}" value="Volver al listado de estampas" immediate="true"/>
+                <h:link outcome="View" value="#{bundle.EditEstampasViewLink}"/>
+                <br />
+                <h:commandLink action="#{estampasController.prepareList}" value="#{bundle.EditEstampasShowAllLink}" immediate="true"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.EditEstampasIndexLink}" />
