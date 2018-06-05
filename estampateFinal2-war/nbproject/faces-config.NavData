@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="camisetas/Edit.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="usuario/List.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="frontAdmin/ViewEstampas.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="usuario/View.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="usuario/Create.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="frontCompras/catalogoEstampas.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="facturaVenta/Create.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="camisetas/List.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="frontAdmin/ListUserAdm.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="camisetas/View.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="frontCompras/CreateFacturaCliente.xhtml" x="72" y="393" zoom="true"/>
+        <Node id="template.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="frontArtista/CreateArtista.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="frontAdmin/ListEstampas.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="frontAdmin/EditParamTema.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="frontArtista/EditEstampaPropia.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="facturaVenta/List.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="index.jsp" x="900" y="750" zoom="true"/>
+        <Node id="frontCompras/ListCliente.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="frontAdmin/CreateEstampas.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="frontAdmin/CreateUserAdm.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="usuario/Edit.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="frontAdmin/ListParamTema.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="frontArtista/ViewEstampaPropia.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="frontAdmin/EditUserAdm.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="frontArtista/ListArtistas.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="frontArtista/ListEstampaPropia.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="camisetas/Create.xhtml" x="95" y="525" zoom="true"/>
+        <Node id="estampas/List.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="estampas/Create.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="frontAdmin/EditEstampas.xhtml" x="394" y="255" zoom="true"/>
+        <Node id="frontCompras/EditCliente.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="estampas/Edit.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="facturaVenta/Edit.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="frontAdmin/ViewUserAdm.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="facturaVenta/View.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="estampas/View.xhtml" x="400" y="450" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

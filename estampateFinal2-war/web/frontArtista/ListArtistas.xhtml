@@ -3,11 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="LISTA DE USUARIOS CLIENTE"></h:outputText>
+            <h:outputText value="#{bundle.ListUsuarioTitle}"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:form styleClass="jsfcrud_list_form">
@@ -15,6 +16,7 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListUsuarioEmpty}" rendered="#{usuarioController.items.rowCount == 0}"/>
+                
                 <h:panelGroup rendered="#{usuarioController.items.rowCount > 0}">
                     <h:outputText value="#{usuarioController.pagination.pageFirstItem + 1}..#{usuarioController.pagination.pageLastItem + 1}/#{usuarioController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{usuarioController.previous}" value="#{bundle.Previous} #{usuarioController.pagination.pageSize}" rendered="#{usuarioController.pagination.hasPreviousPage}"/>&nbsp;
@@ -22,61 +24,36 @@
                     <h:dataTable value="#{usuarioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
                         <h:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_idUsuario}" />
-                            </f:facet>
-                            <h:outputText value="#{item.idUsuario}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_nombre}"/>
                             </f:facet>
-                            <h:outputText value="#{item.nombre}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
+                            <h:outputText value="#{item.nombre}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_alias}"/>
                             </f:facet>
-                            <h:outputText value="#{item.alias}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_correo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.correo}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_password}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.password}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
+                            <h:outputText value="#{item.alias}"/>
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListUsuarioTitle_tipoUsuario}"/>
                             </f:facet>
-                            <h:outputText value="#{item.tipoUsuario}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_telefono}" />
-                            </f:facet>
-                            <h:outputText value="#{item.telefono}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListUsuarioTitle_direccion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.direccion}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
+                            <h:outputText value="#{item.tipoUsuario}" />
                         </h:column>
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="&nbsp;"/>
                             </f:facet>
-                            <h:commandLink action="#{usuarioController.prepareEditCliente}" value="#{bundle.ListUsuarioEditLink}" rendered="#{item.tipoUsuario gt 'Artista'}"/>
+                            <h:commandLink action="#{usuarioController.prepareView}" value="#{bundle.ListUsuarioViewLink}"/>
                             <h:outputText value=" "/>
+                            <h:commandLink action="#{usuarioController.prepareEdit}" value="#{bundle.ListUsuarioEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{usuarioController.destroy}" value="#{bundle.ListUsuarioDestroyLink}"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
+                <br />
+                <h:commandLink action="#{usuarioController.prepareCreate}" value="#{bundle.ListUsuarioCreateLink}"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListUsuarioIndexLink}"/>

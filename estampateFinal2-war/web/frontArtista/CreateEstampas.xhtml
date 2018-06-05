@@ -7,7 +7,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.CreateEstampasTitle}"></h:outputText>
+            <h:outputText value="CREACION DE UNA NUEVA ESTAMPA"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:panelGroup id="messagePanel" layout="block">
@@ -19,8 +19,12 @@
                     <h:inputText id="nombreEstampa" value="#{estampasController.selected.nombreEstampa}" title="#{bundle.CreateEstampasTitle_nombreEstampa}" required="true" requiredMessage="#{bundle.CreateEstampasRequiredMessage_nombreEstampa}"/>
                     <h:outputLabel value="#{bundle.CreateEstampasLabel_descripcion}" for="descripcion" />
                     <h:inputText id="descripcion" value="#{estampasController.selected.descripcion}" title="#{bundle.CreateEstampasTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateEstampasRequiredMessage_descripcion}"/>
-                    <h:outputLabel value="#{bundle.CreateEstampasLabel_tamaño}" for="tamaño" />
-                    <h:inputText id="tamaño" value="#{estampasController.selected.tamaño}" title="#{bundle.CreateEstampasTitle_tamaño}" required="true" requiredMessage="#{bundle.CreateEstampasRequiredMessage_tamaño}"/>
+                    <h:outputLabel value="#{bundle.CreateEstampasLabel_tamaño}" for="tamaño" />                    
+                    <h:selectOneMenu  id="tamaño" value="#{estampasController.selected.tamaño}" title="#{bundle.EditEstampasTitle_tamaño}" required="true" requiredMessage="#{bundle.EditEstampasRequiredMessage_tamaño}">
+                            <f:selectItem itemValue = "pequeño" itemLabel = "pequeño" /> 
+                            <f:selectItem itemValue = "mediano" itemLabel = "mediano" /> 
+                            <f:selectItem itemValue = "grande" itemLabel = "grande" />                             
+                    </h:selectOneMenu>                    
                     <h:outputLabel value="#{bundle.CreateEstampasLabel_precio}" for="precio" />
                     <h:inputText id="precio" value="#{estampasController.selected.precio}" title="#{bundle.CreateEstampasTitle_precio}" required="true" requiredMessage="#{bundle.CreateEstampasRequiredMessage_precio}"/>
                     <h:outputLabel value="#{bundle.CreateEstampasLabel_ubicacion}" for="ubicacion" />
@@ -29,10 +33,7 @@
                             <f:selectItem itemValue = "adelante pecho" itemLabel = "adelante pecho" /> 
                             <f:selectItem itemValue = "magas derecha e izquierda" itemLabel = "magas derecha e izquierda" /> 
                             <f:selectItem itemValue = "atras" itemLabel = "atras" /> 
-                    </h:selectOneMenu> 
-                    
-                    
-                    
+                    </h:selectOneMenu>           
                     <h:outputLabel value="#{bundle.CreateEstampasLabel_autor}" for="autor" />
                     <h:inputText id="autor" value="#{estampasController.selected.autor}" title="#{bundle.CreateEstampasTitle_autor}" required="true" requiredMessage="#{bundle.CreateEstampasRequiredMessage_autor}"/>
                     <h:outputLabel value="#{bundle.CreateEstampasLabel_rating}" for="rating" />
@@ -45,10 +46,10 @@
                     </h:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{estampasController.create}" value="#{bundle.CreateEstampasSaveLink}" />
+                <h:commandLink action="#{estampasController.create}" value="GUARDAR" />
                 <br />
                 <br />
-                <h:commandLink action="#{estampasController.prepareList}" value="#{bundle.CreateEstampasShowAllLink}" immediate="true"/>
+                <h:commandLink action="#{estampasController.prepareListEstampaPropia()}" value="VOLVER A LAS ESTAMPAS" immediate="true"/>
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.CreateEstampasIndexLink}"/>

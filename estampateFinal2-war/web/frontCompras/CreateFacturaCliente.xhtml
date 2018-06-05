@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateFacturaVentaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_fecha}" for="fecha" />
+                    <h:inputText id="fecha" value="#{facturaVentaController.selected.fecha}" title="#{bundle.CreateFacturaVentaTitle_fecha}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_fecha}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{facturaVentaController.selected.direccion}" title="#{bundle.CreateFacturaVentaTitle_direccion}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_textoEstampa}" for="textoEstampa" />
+                    <h:inputText id="textoEstampa" value="#{facturaVentaController.selected.textoEstampa}" title="#{bundle.CreateFacturaVentaTitle_textoEstampa}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_textoEstampa}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_cantidad}" for="cantidad" />
+                    <h:inputText id="cantidad" value="#{facturaVentaController.selected.cantidad}" title="#{bundle.CreateFacturaVentaTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_cantidad}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_formaPago}" for="formaPago" />
+                    <h:inputText id="formaPago" value="#{facturaVentaController.selected.formaPago}" title="#{bundle.CreateFacturaVentaTitle_formaPago}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_formaPago}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_valorArtista}" for="valorArtista" />
+                    <h:inputText id="valorArtista" value="#{facturaVentaController.selected.valorArtista}" title="#{bundle.CreateFacturaVentaTitle_valorArtista}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_valorArtista}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_valorEmpresa}" for="valorEmpresa" />
+                    <h:inputText id="valorEmpresa" value="#{facturaVentaController.selected.valorEmpresa}" title="#{bundle.CreateFacturaVentaTitle_valorEmpresa}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_valorEmpresa}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_valorAdicionalTexto}" for="valorAdicionalTexto" />
+                    <h:inputText id="valorAdicionalTexto" value="#{facturaVentaController.selected.valorAdicionalTexto}" title="#{bundle.CreateFacturaVentaTitle_valorAdicionalTexto}" />
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_valorNeto}" for="valorNeto" />
+                    <h:inputText id="valorNeto" value="#{facturaVentaController.selected.valorNeto}" title="#{bundle.CreateFacturaVentaTitle_valorNeto}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_valorNeto}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_valorTotal}" for="valorTotal" />
+                    <h:inputText id="valorTotal" value="#{facturaVentaController.selected.valorTotal}" title="#{bundle.CreateFacturaVentaTitle_valorTotal}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_valorTotal}"/>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_camisetasidCamisetas}" for="camisetasidCamisetas" />
+                    <h:selectOneMenu id="camisetasidCamisetas" value="#{facturaVentaController.selected.camisetasidCamisetas}" title="#{bundle.CreateFacturaVentaTitle_camisetasidCamisetas}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_camisetasidCamisetas}">
+                        <f:selectItems value="#{camisetasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_estampasUsuarioidUsuario}" for="estampasUsuarioidUsuario" />
+                    <h:selectOneMenu id="estampasUsuarioidUsuario" value="#{facturaVentaController.selected.estampasUsuarioidUsuario}" title="#{bundle.CreateFacturaVentaTitle_estampasUsuarioidUsuario}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_estampasUsuarioidUsuario}">
+                        <f:selectItems value="#{estampasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_usuarioidUsuario}" for="usuarioidUsuario" />
+                    <h:selectOneMenu id="usuarioidUsuario" value="#{facturaVentaController.selected.usuarioidUsuario}" title="#{bundle.CreateFacturaVentaTitle_usuarioidUsuario}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_usuarioidUsuario}">
+                        <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateFacturaVentaLabel_estampasidEstampas}" for="estampasidEstampas" />
+                    <h:selectOneMenu id="estampasidEstampas" value="#{facturaVentaController.selected.estampasidEstampas}" title="#{bundle.CreateFacturaVentaTitle_estampasidEstampas}" required="true" requiredMessage="#{bundle.CreateFacturaVentaRequiredMessage_estampasidEstampas}">
+                        <f:selectItems value="#{estampasController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{facturaVentaController.create}" value="#{bundle.CreateFacturaVentaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{facturaVentaController.prepareList}" value="#{bundle.CreateFacturaVentaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateFacturaVentaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -35,9 +35,14 @@ public class EstampasController implements Serializable {
     public EstampasController() {
     }
 
-    public List<Estampas> getBuscarAutores() {
-        return buscarAutores;
-    }
+    
+    public List <Estampas> findAll (){
+        
+        return this.ejbFacade.findAll();    }
+    
+    
+    
+
 
     public void setBuscarAutores(List<Estampas> buscarAutores) {
         this.buscarAutores = buscarAutores;
@@ -92,6 +97,13 @@ public class EstampasController implements Serializable {
         recreateModel();
         return "ListParamTema";
     }
+     
+    
+    public String prepareListEstampaPropia() {
+        recreateModel();
+        return "ListEstampaPropia";
+    }
+    
     
     
     public String prepareView() {
@@ -100,11 +112,24 @@ public class EstampasController implements Serializable {
         return "View";
     }
     
-        public String prepareViewEstampas() {
+    public String prepareViewEstampas() {
         current = (Estampas) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "ViewEstampas";
     }
+        
+    public String prepareViewEstampaPropia() {
+        current = (Estampas) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "ViewEstampaPropia";
+    }    
+    
+    
+    public String prepareViewEstampaRating() {
+        current = (Estampas) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "ViewEstampaPropiaRatings";
+    }  
     
     
 
@@ -118,6 +143,14 @@ public class EstampasController implements Serializable {
         selectedItemIndex = -1;
         return "CreateEstampas";
     }
+        
+    public String prepareCreateEstampaPropia() {
+        current = new Estampas();
+        selectedItemIndex = -1;
+        return "CreateEstampas";
+    }        
+        
+        
     
 
     public String create() {
@@ -129,7 +162,8 @@ public class EstampasController implements Serializable {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("Ocurrio un error al crear la estampa"));
             return null;
         }
-    }
+    } 
+   
 
     public String prepareEdit() {
         current = (Estampas) getItems().getRowData();
@@ -142,6 +176,13 @@ public class EstampasController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "EditEstampas";
     }
+        
+        
+    public String prepareEditEstampaPropia() {
+        current = (Estampas) getItems().getRowData();
+        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
+        return "EditEstampaPropia";
+    }    
         
         
     public String prepareEditParamTema() {
@@ -168,6 +209,18 @@ public class EstampasController implements Serializable {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Estampa actualizada"));
             return "ViewEstampa";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
+    
+        public String updateEstampaPropia() {
+        try {
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("Estampa actualizada"));
+            return "ViewEstampaPropia";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
